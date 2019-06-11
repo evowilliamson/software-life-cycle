@@ -1,0 +1,191 @@
+
+\documentclass[a4paper, 10pt, conference]{ieeeconf}
+\overrideIEEEmargins
+
+% The following packages can be found on http:\\www.ctan.org
+%\usepackage{graphics} % for pdf, bitmapped graphics files
+%\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+%\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+
+\usepackage{geometry}
+\geometry{legalpaper, margin=0.69in}
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\usepackage{graphicx}
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+\usepackage{hyperref}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% Load package for Checkmark symbol:
+\usepackage{bbding}
+
+% Load package for URLs:
+\usepackage{url}
+
+\title{How cloudization of development processes can improve software processes}
+
+\author{Ivo Willemsen\\
+Email: ivo.willemsen@outlook.com}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+This essay raises ideas relating to how cloud-based development solutions can improve software processes in general and quality, schedule and cost properties of project management in particular 
+
+\vspace{3 mm}
+
+Keywords: Quality characteristics measurements, ISO 25010 quality model, cloud-based development, software processes
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Fuggetta and Di Nitto \cite{fuggetta2014} give an overview of development of software processes in the last 15 years. This essay focuses on how the cloudization of software processes can improve quality, cost and time aspects of project execution. In the \textit{Ideas} section, the first two research questions focus on the usage of cloud-based development solutions, in particular cloud-based source control and continuous integration and delivery platforms and how these tools can help in measuring \textit{quality} related characteristics of open-source components. The last research question is an attempt, at a very high macro level, to raise ideas about how untapping the potential of software developers in developing countries can help reduce \textit{cost and schedule} related constraints of project management. Finally, the \textit{Future work} section gives a follow up on possible interesting ideas for future investigation with regards to the research questions that are posed in this essay.
+% Section: ...
+\section{Ideas}
+
+\textit{(RQ1): Do the success of the agile approach and cloudization of tools that implement software  processes in the SLC, warrant a revision of the ISO 25010 quality model?}
+
+\vspace{3 mm}
+
+In my opinion, having read the quality model in detail, it seems that the Agile Manifesto (2001) did not have a lot of impact on the \textit{evolution} of the quality model ISO 9126 to the latest model, ISO 25010, which is, to say the least, surprising. The quality model ISO 25010 \cite{ISO25010} was issued in 2011 and supersedes the ISO 9126 quality model \cite{ISO9126} and it provides a hierarchical decomposition of quality characteristics which, for a given software system, can be mapped to stakeholders' goals and objectives for the system. One would expect that a time span of 10 years would be sufficient to shed a light on the impact of the Agile approach on the (at that moment) current quality model ISO 9126, but not a lot of agile aspects can be found in the revised model ISO 25010.
+
+\vspace{3 mm}
+
+Ford et al. \cite{Ford2017} discuss the effect that software evolution can have on the architecture of a system and it defines \textit{evolvability} as the \textit{ability to support guided, incremental change across multiple dimensions}. Quoting Ford:
+
+\vspace{3 mm}
+
+\begin{tabular}{|p{7.6cm}}
+\textit{To build architectures that truly evolve, architects must support genuine change, not jury-rigged solutions. Going back to our biological metaphor, evolutionary is about the process of having a system that is fit for purpose and can survive the ever-changing environment in which it operates. Systems may have individual adaptations, but as architects, we should care about the overall evolvable system.}\\
+\end{tabular}
+
+\vspace{3 mm}
+
+When applying an agile approach to software development, business requirement changes,  changes in the environment and changes in market conditions are enough ingredients to change the architecture recipe of a system and might result in a re-evaluation and change of the overall architecture of a system. Changes to the architecture should not impact the continuous integration and delivery processes and therefore, 
+judging the \textit{evolvability} of a system gives a good picture of the degree in which a software system is immune to those architectural changes. It would be beneficial for projects that follow the agile approach, to include another main quality characteristic \textit{Agility} with its first sub-characteristic \textit{Evolvability} and define how this sub-characteristic can be measured.
+
+\vspace{3 mm}
+
+One of the goals of the Agile approach is to iteratively deliver MVPs\footnote{Minimal Viable Products}, reducing deployment cycle times to a minimum while at the same time not obstructing business operations. A system's architecture contributes to promoting or restricting the \textit{deployability} of a system. If sub-optimal design decisions are taken as the system is architected and later on evolves through the time, critical activities such as continuous integration and delivery and automated testing can become a problem. It is therefore important to introduce deployability as a quality characteristic. 
+
+\vspace{3 mm}
+
+The idea of deployability as a quality attribute is not a novelty and Khohm et al. \cite{Khomh2012} researched the relationship between reduced cycle times and perceived quality. Actually, the first mention (not in an agile setting) of deployability as a quality attribute is made by Bass et al. \cite{Bass2012} when discussing modifiability quality attributes of a system:
+
+\vspace{3 mm}
+
+\begin{tabular}{|p{7.6cm}}
+\textit{In some projects, deployability is an important quality attribute that measures how easy it is to get a new version of the system into the hands of its users. This might mean a trip to your auto dealer or transmitting updates over the Internet. It also includes the time it takes to install the update once it arrives. In projects that measure deployability separately, should the cost of a modification stop when the new version is ready to ship? Justify your answer.}\\
+\end{tabular}
+
+\vspace{3 mm}
+
+In the footsteps of what was said with regards to the introduction of a new sub-characteristic related with the definition of the quality attribute \textit{evolvability} and it the light of \textit{agilizing} the ISO 25010 quality model, adding the sub-characteristic \textit{deployability} to the main characteristic \textit{Agility}, would be a welcome revision.
+
+\vspace{3 mm}
+
+
+
+\textit{(RQ2): How do cloudization of source code repositories and continuous integration tools, impact the characteristics of the ISO 25010 quality model in order to make sound judgments pertaining to the selection of useful open-source components?}
+
+\vspace{3 mm}
+
+The usage of open source components at the enterprise level is becoming a widespread phenomenon and cloud-based solutions like Github\footnote{\url{https://github.com/}} and BitBucket\footnote{\url{https://bitbucket.org/}} not only provide functionalities to manage software sources, but also allow projects to design CI/CD \footnote{Continuous
+Integration/Continuous Deployment} pipelines which help projects to successfully implement agile aspects of software development by setting up automatic tests and deployments to improve related software processes. Speaking from personal experience, it is a daunting task to make a good selection of open source components to be used in projects because proper quality characteristics measurements of those open source components are missing. As an alternative method of selection, a lot of time is wasted in investigating support forums like stackoverflow\footnote{\url{https://stackoverflow.com/}} and subreddits\footnote{\url{https://reddit.com}} in order to extract useful information that might help projects make sound selection decisions. In the absence of proper selection information, projects might be tempted into making precocious decisions and select open-source components that might not fit their set of non-functional requirements, only to find out later that the decision must be revoked because of a mismatch and losing time and resources and jeopardizing the success of the project. 
+
+\vspace{3 mm}
+
+In order to circumvent these situations, it would be beneficial to enterprises to have these quality measurements of open-source components at their disposal, which would allow them to decide on components that best match the project's quality requirements. The ISO 25010 quality model can be consulted to extract these quality characteristics.  
+
+\vspace{3 mm}
+
+Page 10 of the quality model \cite{ISO25010} lists the main quality characteristic categories. Of those main categories, \textit{Functional suitability}, \textit{Performance efficiency} and \textit{Usability} are not affected by the application of open-source code repositories and CI/CD tools, as they are primarily related with the business requirements and usage of the system, which are quality characteristics that cannot be directly deduced from the source code itself or from statistics that are extracted from CI/CD tools. The other main categories do at least inhibit one quality characteristic that is affected by the usage of cloud-based source control and CI/CD platforms:
+
+\begin{itemize}
+  \item Interoperability (Compatibility) - The extent to which a certain component is compatible with other components can be deduced by checking the dependencies of components. Dependency management is performed by tools like NPM\footnote{\url{https://www.npmjs.com/}} (Node) and Maven \footnote{\url{https://maven.apache.org/}} (Java) and statistics with regards to validity and deprecation of dependent components could be collected during the build-phase performed by CI/CD tools
+  \item Maturity (Reliability) - The maturity of a component cannot be directly deduced, because it is based on the usage of the system. Notwithstanding, the age of the component, the activeness (number of commits) and results of unit and integration tests can be used in order to calculate a statistic that features the maturity of a component
+  \item Fault tolerance (Reliability) - Likewise the previous quality characteristic, fault tolerance is directly deduced from the usage of the system, but a reliable statistic can be deduced by checking the results of unit and integration tests which can be collected by CI/CD tools, and keeping a history of the results in order to check tendency changes
+  \item Confidentiality and Integrity (Security) - An open-source component that is used by an enterprise should use data only according to its intended usage. The degree to which a component ensures that data are accessible only to those authorized to have access is a quality characteristic that is difficult to collect statistics for. Research by Denning \cite{denning1977} and Poll \cite{poll2017} shows that dynamic and static code analysis tools can be developed that would possess the functionality to discover whether confidentiality would be jeopardized by using open-source components. These tools or libraries would have to be integrated with cloud-based source control platforms and CI/CD tools
+  \item Modularity, Reusability, Analyzability and Modifiability (Maintainability) - These are all quality characteristics that are derivations of design properties like cohesion and coupling, and adhering to SOLID design principles is the basis of a good design \cite{wikisolid}. Lanza et al. \cite{Lanza2004} have published an article regarding the generation of visualizations based on reverse-engineered code source code. These visualizations give insight into the quality characteristics which are under discussion here. Likewise, instead of generating visualizations, statistics could be generated that concretize these quality characteristics in a numerical manner
+  \item Testability (Maintainability) - A reliable statistic can be deduced by checking the results of unit and integration tests which can be collected by CI/CD tools
+  \item Installability (Portability) - Package managers like NPM and Maven include steps that take care of packaging and installation of components and these steps can be configured in the build-phase of a component. Cloud-based source control platforms and CI/CD tools keep track of the statistics pertaining to the outcome of the installation and packaging in the build-phase and these statistics thus can be used to qualify the \textit{installability} of a component
+  \item Deployability (Agility) - As suggested in the previous research question (RQ1), adding \textit{deployability} to the ISO 25010 quality model would give agile projects an extra quality characteristic that could aid them in making better decisions with regards to the selection of open-source components. Calculating the deployability of a component is straightforward as it just requires keeping track of the success rate of deployments of components by CI/CD tools
+\end{itemize}
+
+\vspace{3 mm}
+
+An interesting research was performed by Trockman et al. \cite{trockman2018} which elaborates on the usage of quality related repository badges, which are offered by platforms like Github and Bitbucket. One of the research questions they pose is what the effect is of those badges on people who are \textit{shopping} for open-source packages. These badges can either be generated by the platform itself (assessment signals) or can be added by the repository maintainers (conventional signals) in order to convey certain quality characteristics. The outcome of the research was that a large amount of users of open-source packages find those badges useful and admit they are influenced especially by the presence of badges that express quality characteristics related with continuous integration (deployability, testability), static analysis (maintainability) and dependency management (Interoperability). Trockman et al. provide a different categorization of quality characteristics than the ISO 25010 model, and the usage of badges implies in general a more binary representation of the state of the quality characteristic (build passed or build failed). Future work could focus on investigating how data could be collected in order to generate measurements that possess a more continuous character (like a percentage for example).
+
+\vspace{3 mm}
+
+\textit{(RQ3): How can cloud-based integrated development environments help in tapping into the pool of nascent software developers of developing countries and as a result improve cost and schedule related aspects of project management?}
+
+\vspace{3 mm}
+
+From a project management point of perspective, the previous two research questions were related with the quality aspect of project execution. Project outcome can be maximized not only by focusing on maximizing quality, but also by attempting to \textit{minimize time and cost related parameters}. 
+
+\vspace{3 mm}
+
+The cloudization aspects of the previous two research questions were related with discussing quality derivable characteristics of the application of cloud-based source control and CI/CD platforms. Currently, I am writing this essay by using Overleaf, an online environment for writing academic papers. I can focus on writing and there is no need for me to download applications and configure my system in order to run the LaTeX application, thus substantially reducing the time it takes to get started. I don't need to worry about making backups or losing time when my laptop breaks down and in which case I would have to repeat the installation steps again on another laptop. The resource requirements for my laptop, just for the concept of writing this essay, are very limited, as it only requires me to have a browser and a minimal bandwidth internet connection. As a result I \textit{minimized on the cost and schedule requirements} of writing this essay.
+
+\vspace{3 mm}
+
+A parallel can be drawn by considering the development process and the availability of online IDEs\footnote{Integrated Development Environments}. A plethora of online IDE providers are available, the best known being AWS Cloud9 by Amazon \footnote{\url{https://aws.amazon.com/cloud9/}}. Cloud-based IDEs allow developers to code, run and debug application by just using a browser, a minimal bandwidth internet connection and a very low-cost laptop. The last remotely managed project I have worked on as a developer suffered from \textit{configuration hell}: All developers were obliged to configure their laptops themselves with no prescribed setup constraints and as a result, the project suffered in the initial phase and it also required developers to have costly laptops with high-end specifications.
+
+\vspace{3 mm}
+
+The shortage of IT professionals in the world is not the best kept secret, and software developers have been at the top of the hardest to fill jobs in the developed world. At the same time, interest in computer science bachelor and master degree education is lacking behind in the USA \cite{bach2016}. In the last decade, despite the rise in demand for highly-paid software developers, awarded bachelor and major degrees have stayed flat. The last two decades, Indian consultancy service businesses have filled the void created by the ever increasing demand for IT professionals and have caused a true migration invasion of people working in the USA on H1-B visas that eclipses the current migration stream consisting of people from Central American countries looking for better economic situations in the USA. Adding to this the current stance and trend of developed countries against migration in general, it is interesting to research other opportunities of overcoming the mismatch between the increasing demand and diminishing supply of software developers in developed countries and this is where matching Silicon Valley directly with software developers in developing countries could be the solution. But in order to reap the harvest, the seeds must be sown first, which means that access to education must be guaranteed.
+
+\vspace{3 mm}
+
+Universal access to education was researched by Goel et al. \cite{Goel2012} and the following paragraph caught my attention:
+
+\vspace{3 mm}
+
+\begin{tabular}{|p{7.6cm}}
+\textit{Developing countries usually suffer from remote location, lack of infrastructure like inadequate telecommunications facilities, lack of trained staff, the cost and the availability of computers and electricity. These are all major problems that bring on poor quality in education and lack of access to it. There is a need for innovative methods of delivery which can help bridge this gap and thus provide universal access to education.}\\
+\end{tabular}
+
+\vspace{3 mm}
+
+Silicon Valley and other IT hubs around the world should take a holistic approach by taking responsibility regarding combined education and employment opportunities and consider bundling forces with cloud-based MOOC platforms like Coursera\footnote{\url{https://www.coursera.org/}} and Udemy\footnote{\url{https://www.udemy.com/}}. These platforms offer complete educations and technical courses, where Coursera focuses on offering  academic (unaccredited) education and careers (affiliated with the most influential universities around the world) and Udemy focuses more on offering technical courses. The costs of those education tracks and technical courses are very low (up to 40-hour courses on Udemy sell for as low as 10 dollar and Coursera charges 40 dollar for complete academic tracks). Inadequate government spending in developing countries, quoting Goel et al. \cite{Goel2012} "Inadequate government spending in the education sector is primarily blamed for poor education as an aspect in hampered national development" in combination with a multiple-decades history of corruption, gives little hope for involving local governments in these efforts and matching IT solution provider directly with software developers in developing countries might be an option.
+
+\vspace{3 mm}
+Cloud-based IDEs require a low initial investment with regards to hardware, no software licenses if open-source components are used and a low bandwidth internet connection. Adding to this the usage of cloud-based MOOC platforms for education purposes, coupled with a proactive approach by the IT services sector in unlocking an untapped market pool of software developers in developing countries, could help decrease schedule and cost aspects of project execution.
+
+\section{Future work}
+
+Given the fact that the intent of this essay is to raise ideas and not to do a full-blown research, there is room for future work. The following ideas could be investigated in a more academic and elaborate fashion:
+
+\vspace{3 mm}
+
+\begin{itemize}
+    \item \textit{(RQ1, RQ2) - What kind of APIs and interfaces need to be developed in order to automatically collect quality measurements statistics ?}
+    \item \textit{(RQ1, RQ2) - Adding identity information to collected quality measurement statistics}. Research questions RQ1 and RQ2 are related with collecting measurements of quality characteristics of open-source components by cloud-based source control and CI/CD platforms. The basis of these statistics are not the open-source components itself, but the contributors who commit work to the source control platforms. By collecting statistics with regards to the quality of open-source components, implicitly, also the skills, capabilities and competences of those contributors can be deduced. Possible follow up research questions that I can imagine:
+    \begin{itemize}
+        \item \textit{How can quality related measurement statistics be used to generate resumes of contributors to open-source projects ?} Putting incorrect content in resumes is sometimes referred to as \textit{Resume Dressing} and is an activity that is a pain in the rear for many employers and recruiters. On the other hand, it could be considered a tool for contributors to showcase their capabilities and to leave a global record of skills and competences
+        \item \textit{Which controls should be put in place to manage the amount of personal information that contributors would like to share ?} GDPR and other privacy regulations are put in place to protect privacy sensitive information. Which controls should contributors be given to decide upon the amount of personal information that would be shared with employers and recruiters
+        \item \textit{How can contributors to open-source components be uniquely identified ?} Contributors to open-source projects don't go through a KYC process \footnote{\url{https://en.wikipedia.org/wiki/Know_your_customer}}. Is there a need for a KYC process when matching identity information with quality measurement statistics of open-source components ?
+    \end{itemize}
+\end{itemize}
+
+% References 
+\bibliographystyle{IEEEtran}
+% your references should be in the file ref.bib
+\bibliography{IEEEabrv,ref}
+
+\end{document}
